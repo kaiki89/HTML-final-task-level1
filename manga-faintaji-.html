@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品一覧「曜日」 - PanelX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* .nothyoji {
+            display: none;
+        } */
+        @media screen and (max-width: 979px) {
+        .nothyoji{
+            display: none;
+        }
+        }
+
+        .filter-card {
+            position: sticky;
+            top: 20px;
+        }
+
+        .anime-card img {
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .filter-section {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-book"></i> PanelX
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-list.html">作品一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-ranking.html">ランキング</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-mylist.html">マイリスト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-community.html">コミュニティ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-lg-none" href="manga-login.html">ログイン</a>
+                    </li>
+                </ul>
+                <a href="manga-login.html" class="btn btn-light ms-3 d-none d-lg-block">
+                    <i class="bi bi-person-circle"></i> ログイン</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="page-heading">
+        <div class="container">
+            <h1 class="display-6 fw-bold mb-3"><span class="">月曜日</span>作品一覧</h1>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <!-- パンくずリスト -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
+                <li class="breadcrumb-item active" aria-current="page">月曜日作品一覧</a></li>
+            </ol>
+        </nav>
+        <div class="row mb-5">
+            <div class="col-lg-10">
+                <!-- 作品カード -->
+                <div class="row g-4 mb-4" id="contentDisplay">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card position-relative">
+                            <img src="img/SPY×FAMILY.jpg" class="card-img-top" alt="SPY×FAMILY">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-primary">ファンタジー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">SPY×FAMILY</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    凄腕スパイ＜黄昏＞は、より良き世界のため日々、諜報任務にあたっていた。ある日、新たな困難な指令が下るーー…。任務のため、仮初めの家族を作り、新生活が始まるのだが！？
+                                </p>
+                                <a href="manga-SPY×FAMILY-detail.html" class="stretched-link"></a>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">938,990,733</span>
+                                    </div>
+                                    <small class="text-muted ms-1">540,712件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/チェンソーマン.jpg" class="card-img-top" alt="チェンソーマン">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">チェンソーマン 第二部</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    チェンソーの悪魔を身に宿した少年・デンジ。世界はチェンソーマンを知るのだがーー…！？</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">601,115,642</span>
+                                    </div>
+                                    <small class="text-muted ms-1">604,915件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/ダンダダン.jpg" class="card-img-top" alt="ダンダダン">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-info">SF</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">ダンダダン</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    幽霊を信じない明るとマニアの少年・高倉と、宇宙人を信じない少女・綾瀬は、お互いの理解を超越した圧倒的回帰に出会うーー…！</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">976,143,116</span>
+                                    </div>
+                                    <small class="text-muted ms-1">779,391件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/チェンソーマン１部.jpg" class="card-img-top" alt="チェンソーマン１部">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-primary">ファンタジー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">チェンソーマン 第一部</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    悪魔のポチタと共にデビルハンターとして借金取りにこき使われる超貧乏な少年・デンジ。ド底辺の日々は、残忍な裏切りで一変する！！悪魔をその身に宿し、悪魔を狩る！！</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">505,235,245</span>
+                                    </div>
+                                    <small class="text-muted ms-1">121,668件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/忘却バッテリー.jpg" class="card-img-top" alt="忘却バッテリー">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-primary">ファンタジー</span>
+                                    <span class="badge bg-warning text-dark">人気</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">忘却バッテリー</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    誰からも恐れられてた、怪物バッテリーが普通の都立高校へ！？出会うはずのない場所で、天才たちは出会ってしまった…！</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">471,311,365</span>
+                                    </div>
+                                    <small class="text-muted ms-1">347,910件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/幼稚園WARS.jpg" class="card-img-top" alt="幼稚園WARS">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-dark">ホラー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">幼稚園SWRS</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    ここは世界の重鎮の子が通うブラック幼稚園。リタ先生は彼氏募集中だけど出会いが全くなかった。ある日、子供を狙った殺し屋が現れ、超イケメンで！？世界一"安全"な幼稚園で繰り広げられるアクション×ラブコメ！？
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">251,597,901</span>
+                                    </div>
+                                    <small class="text-muted ms-1">256,037件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/2.5次元.jpg" class="card-img-top" alt="2.5次元の誘惑">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-info">SF</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">2.5次元の誘惑</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    現実の女に興味無し！俺の嫁・リリエルは2次元にあり！そんな漫研部長・奥村の前に現れたのは…リアルなリリエル？ドキドキコスプレコメディ開幕！？</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">439,454,272</span>
+                                    </div>
+                                    <small class="text-muted ms-1">518,061件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/エクソシスト.jpg" class="card-img-top" alt="エクソシストを堕とせない">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-secondary">完結</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">エクソシストを堕とせない</h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    神に選ばれし少年は、最強のエクソシストとして魔王たちと死闘を繰り広げていた。人類の命運を背負いつつも本当は静かにお菓子作りをしていたい、そんな彼に訪れた一人の少女との出会い…。これは壮絶な聖戦の中で芽吹いた、恋と希望の物語。
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">136,665,769</span>
+                                    </div>
+                                    <small class="text-muted ms-1">141,408件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card anime-card">
+                            <img src="img/君のことが.jpg" class="card-img-top" alt="君のことが大大大大大好きな100人の彼女">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge" style="background-color: #f97316;">グルメ</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h5 class="card-title fw-bold card-title-nowrap">君のことが大大大大大好きな100人の彼女 </h5>
+                                <p class="card-text text-muted small text-clamp-3">
+                                    中学で100回目の失恋をした恋太郎は、高校でこそ初めての彼女を！を願う。しかし、恋の神様は「高校生活でである運命の彼女は100人！しかし彼女たちは、幸せになれなければなんやかんや（中略）あって…死ぬ」と告げる。100人の彼女を脱落しない！させない！DEAD
+                                    OR LOVEなハーレム・ハイスクールライフ開幕！</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="rating-stars small">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">253,327,104</span>
+                                    </div>
+                                    <small class="text-muted ms-1">363,624件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 準備中 -->
+                <div id="contentPreparing" class="mb-4 d-none">
+                    <h4 id="preparingMessage" class="text-center py-5"></h4>
+                </div>
+
+                <!-- ページネーション -->
+                <nav aria-label="ページネーション" id="pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="bi bi-chevron-left"></i> 前へ
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">26</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                次へ <i class="bi bi-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-2 nothyoji">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title fw-semibold mb-3"><i class="bi bi-calendar"></i> 曜日から探す</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-moon  text-primary"></i> 月曜日
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-fire  text-danger"></i> 火曜日
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-droplet  text-info"></i> 水曜日
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-tree  text-success"></i> 木曜日
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-coin  text-warning"></i> 金曜日
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-triangle-fill  text-muted"></i> 土曜日
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-decoration-none">
+                                    <i class="bi bi-brightness-high-fill  text-danger"></i> 日曜日
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- フッター -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-film"></i> PanelX</h5>
+                    <p class="text-light">あなたの好きなアニメを見つけて、共有しよう。</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="manga-liyoukiyaku.html" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-discord fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center text-light mb-0">&copy; 2025 PanelX. All rights reserved.</p>
+        </div>
+    </footer>
+    <button id="backToTopBtn" class="btn shadow d-flex align-items-center justify-content-center">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="sort-toggle.js"></script>
+</body>
+
+</html>

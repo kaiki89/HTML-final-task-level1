@@ -7,20 +7,20 @@
 }
 
 .navbar {
-  background-color: #1c2432;
+  background-color: #480000d8;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hero-section,
 .page-heading {
-  background: linear-gradient(180deg, #1d2734 0%, #404a5d 100%);
+  background: linear-gradient(180deg, #821818 0%, #ba2323 100%);
   color: #ffffff;
   padding: 80px 0;
   margin-bottom: 40px;
 }
 
 .page-heading {
-  padding: 60px 0 40px 0;
+  padding: 20px 0 10px 0;
   margin-bottom: 40px;
 }
 

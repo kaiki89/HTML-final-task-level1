@@ -1,0 +1,31 @@
+/* 外枠：横スクロール可能にする */
+.scroll-container {
+  overflow-x: auto; /*はみ出したらスクロールバーを表示する*/
+  overflow-y: hidden; /*はみだしたコンテンツを非表示にする*/    /*}この3行がスクロールバーを実現している*/
+  white-space: nowrap; /*改行するのを防ぐ*/
+  height: 220px;
+  padding-bottom: 10px; /* スクロールバーと画像が重ならないように */
+}
+
+/* 横並び */
+.scroll-track {
+  display: flex;
+  height: 100%;
+}
+
+.scroll-item {
+  flex-shrink: 0;
+  height: 220px;
+  margin-right: 10px; /* ← ここで隙間を調整 */
+}
+
+.scroll-item a {
+  display: block;
+  height: 100%;
+}
+
+.scroll-item img {
+  display: block;
+  height: 100%;
+  object-fit: cover; /*imgの画像を制御*/
+}

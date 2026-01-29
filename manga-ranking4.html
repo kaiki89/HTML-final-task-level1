@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランキング - PanelX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        .ranking-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 900px;
+            margin: 0 auto 1rem;
+        }
+
+        .ranking-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .rank-badge {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .rank-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #C39000;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .rank-2 {
+            background: linear-gradient(135deg, #6c757d, #adb5bd);
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(192, 192, 192, 0.5);
+        }
+
+        .rank-3 {
+            background: linear-gradient(135deg, #cd7f32, #e09142);
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(205, 127, 50, 0.5);
+        }
+
+        .rank-other {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            color: #666;
+        }
+
+        .anime-thumbnail {
+            width: 90px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .trend-up {
+            color: #10b981;
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
+
+        .trend-same {
+            color: #6b7280;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .ranking-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .ranking-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ranking-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .ranking-description {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .ranking-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .ranking-action {
+            margin-left: auto;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 992px) {
+            .rank-badge {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .anime-thumbnail {
+                width: 70px;
+                height: 100px;
+            }
+
+            .ranking-title {
+                font-size: 1.1rem;
+            }
+
+            .ranking-description {
+                font-size: 0.85rem;
+            }
+
+            .ranking-meta {
+                font-size: 0.85rem;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-heading {
+                padding: 30px 0;
+            }
+
+            .page-heading h1 {
+                font-size: 2rem;
+            }
+
+            .ranking-card:hover {
+                transform: translateX(5px);
+            }
+
+            .ranking-content {
+                gap: 12px;
+            }
+
+            .anime-thumbnail {
+                width: 60px;
+                height: 85px;
+            }
+
+            .ranking-title {
+                font-size: 1rem;
+            }
+
+            .ranking-description {
+                display: none;
+            }
+
+            .ranking-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .ranking-action {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .ranking-action .btn {
+                width: 100%;
+            }
+
+            .card-body {
+                padding: 15px;
+            }
+
+            .tab-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .rank-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .anime-thumbnail {
+                width: 50px;
+                height: 70px;
+            }
+
+            .ranking-title {
+                font-size: 0.95rem;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+            }
+
+            .rating-stars {
+                font-size: 0.85rem;
+            }
+
+            .ranking-meta {
+                font-size: 0.8rem;
+            }
+
+            .page-heading h1 {
+                font-size: 1.75rem;
+            }
+
+            .page-heading .lead {
+                font-size: 1rem;
+            }
+
+            .tab-btn {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+
+            .rank-1 i,
+            .rank-2 i,
+            .rank-3 i {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-film"></i> PanelX
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-list.html">作品一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">ランキング</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-mylist.html">マイリスト</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manga-community.html">コミュニティ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-lg-none" href="manga-login.html">ログイン</a>
+                    </li>
+                </ul>
+                <a href="manga-login.html" class="btn btn-light ms-3 d-none d-lg-block">
+                    <i class="bi bi-person-circle"></i> ログイン</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ページヘッダー -->
+    <div class="page-heading">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">
+                <i class="bi bi-trophy-fill"></i> ランキング
+            </h1>
+            <p class="lead">みんなが選ぶ人気漫画ランキング</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- タブナビゲーション -->
+        <ul class="nav nav-pills nav-fill mb-4" id="rankingTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link tab-btn m-1 active" id="overall-tab" data-bs-toggle="pill"
+                    data-bs-target="#overall" type="button" role="tab">
+                    <i class="bi bi-star-fill"></i> 総合<span class="d-none d-lg-inline">ランキング</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link tab-btn" id="weekly-tab" data-bs-toggle="pill" data-bs-target="#weekly"
+                    type="button" role="tab">
+                    <i class="bi bi-calendar-week"></i> 週間<span class="d-none d-lg-inline">ランキング</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link tab-btn" id="monthly-tab" data-bs-toggle="pill" data-bs-target="#monthly"
+                    type="button" role="tab">
+                    <i class="bi bi-calendar-month"></i> 月間<span class="d-none d-lg-inline">ランキング</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link tab-btn" id="seasonal-tab" data-bs-toggle="pill" data-bs-target="#seasonal"
+                    type="button" role="tab">
+                    <i class="bi bi-calendar3"></i> 今期<spna class="d-none d-lg-inline">ランキング</spna>
+                </button>
+            </li>
+        </ul>
+
+        <!-- タブコンテンツ -->
+        <div class="tab-content" id="rankingTabContent">
+            <!-- 総合ランキング -->
+            <div class="tab-pane fade show active" id="overall" role="tabpanel">
+                <!-- 30位以降 -->
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">31</div>
+                            <img src="img/群脳教室.jpg" class="anime-thumbnail" alt="31位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">群脳教室</h4>
+                                <p class="ranking-description">衝撃のサスペンス群脳戦記！</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">16,847,742</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">21,472件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">32</div>
+                            <img src="img/都市伝説先輩.jpg" class="anime-thumbnail" alt="32位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">都市伝説先輩</h4>
+                                <p class="ranking-description">青春×オカルトコメディ、開幕！</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">22,774,386</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">39,392件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">33</div>
+                            <img src="img/おかえり水平線.jpg" class="anime-thumbnail" alt="33位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">おかえり水平線</h4>
+                                <p class="ranking-description">海風薫この街で新生活が始まるーー！</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">11,830,485</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">36,391件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">34</div>
+                            <img src="img/このクラスにギャルはいない.jpg" class="anime-thumbnail" alt="34位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-danger">恋愛</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">このクラスにギャルはいない</h4>
+                                <p class="ranking-description">優等生、ギャルになる↑↑↑</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">26,864,276</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">48,963件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">35</div>
+                            <img src="img/モノクロのふたり.jpg" class="anime-thumbnail" alt="35位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-dark">ホラー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">モノクロのふたり</h4>
+                                <p class="ranking-description">諦めた未来へ、もう一度</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">26,865,732</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">48,966件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">36</div>
+                            <img src="img/ゴーストフィクサーズ.jpg" class="anime-thumbnail" alt="36位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-info">SF</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">ゴーストフィクサーズ</h4>
+                                <p class="ranking-description">非現実【GHOST】を校正せよ！</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">40,487,010</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">74,390件のコメント</small>
+                                    </div>
+                                    <span class="trend-down">
+                                        <i class="bi bi-arrow-down-circle-fill"></i> 先週より -2
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">37</div>
+                            <img src="img/良太は弟を殺した.jpg"class="anime-thumbnail" alt="37位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-info">SF</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">良太は弟を殺した</h4>
+                                <p class="ranking-description">可愛い弟は、化け物ーー？新撼覚ホラー開幕</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">21,815,40,870</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">40,870件のコメント</small>
+                                    </div>
+                                    <span class="trend-up">
+                                        <i class="bi bi-arrow-up-circle-fill"></i> 先週より +3
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">38</div>
+                            <img src="img/オトメの帝国.jpg" class="anime-thumbnail" alt="38位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-dark">ホラー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">オトメの帝国</h4>
+                                <p class="ranking-description">百合漫画の日本代表！</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">160,084,673</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">149,290件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">39</div>
+                            <img src="img/天傍台閣.jpg" class="anime-thumbnail" alt="39位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-dark">ホラー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">天傍台閣</h4>
+                                <p class="ranking-description">術者の郷国 その統治機関の名はーー</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">12,614,877</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">17,802件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ranking-card">
+                    <div class="card-body">
+                        <div class="ranking-content">
+                            <div class="rank-badge rank-other">40</div>
+                            <img src="img/なんにもうまくいかなかったらどうしよう.jpg" class="anime-thumbnail" alt="40位">
+                            <div class="ranking-info">
+                                <div class="d-flex gap-2 mb-2 flex-wrap">
+                                    <span class="badge bg-dark">ホラー</span>
+                                    <span class="badge bg-success">放送中</span>
+                                </div>
+                                <h4 class="ranking-title">なんにもうまくいかなかったらどうしよう</h4>
+                                <p class="ranking-description">試験当日、電車で出会った彼は。</p>
+                                <div class="ranking-meta">
+                                    <div class="rating-stars mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-eye"></i>
+                                        <span class="text-dark ms-1">672,895</span>
+                                    </div>
+                                    <div class="mb-2 mb-sm-0 mb-md-2 mb-lg-0">
+                                        <i class="bi bi-chat-left-text"></i>
+                                        <small class="text-muted">1,749件のコメント</small>
+                                    </div>
+                                    <span class="trend-same">
+                                        <i class="bi bi-dash-circle-fill"></i> 変動なし
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="ranking-action">
+                                <button class="btn btn-outline-dark">詳細</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ページネーション -->
+                <nav aria-label="ランキングページネーション" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="manga-ranking3.html"><i class="bi bi-chevron-left"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="manga-ranking.html">1</a></li>
+                        <li class="page-item"><a class="page-link" href="manga-ranking2.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="manga-ranking3.html">3</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="manga-ranking5.html">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="manga-ranking5.html"><i class="bi bi-chevron-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- 週間・月間・今期ランキングは同様の構造 -->
+            <div class="tab-pane fade" id="weekly" role="tabpanel">
+                <div class="text-center py-5">
+                    <h4>週間ランキングの内容がここに表示されます</h4>
+                    <p class="text-muted">（総合ランキングと同様の構造）</p>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="monthly" role="tabpanel">
+                <div class="text-center py-5">
+                    <h4>月間ランキングの内容がここに表示されます</h4>
+                    <p class="text-muted">（総合ランキングと同様の構造）</p>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="seasonal" role="tabpanel">
+                <div class="text-center py-5">
+                    <h4>今期ランキングの内容がここに表示されます</h4>
+                    <p class="text-muted">（総合ランキングと同様の構造）</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- フッター -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-film"></i> PanelX</h5>
+                    <p class="text-light">あなたの好きなアニメを見つけて、共有しよう。</p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サイト情報</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-3">サポート</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">ヘルプ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">お問い合わせ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold mb-3">フォローする</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-youtube fs-4"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-discord fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center text-light mb-0">&copy; 2025 PanelX. All rights reserved.</p>
+        </div>
+    </footer>
+    <button id="backToTopBtn" class="btn shadow d-flex align-items-center justify-content-center">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</body>
+
+</html>

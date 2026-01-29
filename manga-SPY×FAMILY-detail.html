@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>異世界の勇者 ～運命の旅路～ - AnimeHub</title>
+    <title>SPY×FAMILY - MangaHub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,8 @@
         href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="base.css">
-    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="SPYFAMILY.css">
+    <link rel="icon" href="favicon.ico">
     <style>
         .hero-image {
             width: 100%;
@@ -99,7 +100,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="bi bi-film"></i> AnimeHub
+                <i class="bi bi-book"></i> PanelX
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -110,22 +111,22 @@
                         <a class="nav-link" href="index.html">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="anime-list.html">作品一覧</a>
+                        <a class="nav-link" href="manga-list.html">作品一覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="anime-ranking.html">ランキング</a>
+                        <a class="nav-link" href="manga-ranking.html">ランキング</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="anime-mylist.html">マイリスト</a>
+                        <a class="nav-link" href="manga-mylist.html">マイリスト</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="anime-community.html">コミュニティ</a>
+                        <a class="nav-link" href="manga-community.html">コミュニティ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-lg-none" href="anime-login.html">ログイン</a>
+                        <a class="nav-link d-lg-none" href="manga-login.html">ログイン</a>
                     </li>
                 </ul>
-                <a href="anime-login.html" class="btn btn-light ms-3 d-none d-lg-block">
+                <a href="manga-login.html" class="btn btn-light ms-3 d-none d-lg-block">
                     <i class="bi bi-person-circle"></i> ログイン</a>
             </div>
         </div>
@@ -136,59 +137,16 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
-                <li class="breadcrumb-item"><a href="anime-list.html">作品一覧</a></li>
-                <li class="breadcrumb-item active" aria-current="page">異世界の勇者 ～運命の旅路～</li>
+                <li class="breadcrumb-item"><a href="manga-list.html">作品一覧</a></li>
+                <li class="breadcrumb-item active" aria-current="page">SPY×FAMILY</li>
             </ol>
         </nav>
 
         <!-- 作品メイン情報 -->
         <div class="row mb-5">
             <div class="col-lg-8">
-                <!-- 画像カルーセル -->
                 <div id="animeCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="0"
-                            class="active"></button>
-                        <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="2"></button>
-                        <button type="button" data-bs-target="#animeCarousel" data-bs-slide-to="3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/異世界の勇者 ～運命の旅路～.webp" class="d-block w-100" alt="メインビジュアル">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-                                <h5>メインビジュアル</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/battle.webp" class="d-block w-100" alt="バトルシーン">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-                                <h5>迫力のバトルシーン</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/ordinary.webp" class="d-block w-100" alt="日常シーン">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-                                <h5>仲間との日常</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/scenery.webp" class="d-block w-100" alt="異世界の風景">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-                                <h5>美しい異世界の風景</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        <span class="visually-hidden">前へ</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                        <span class="visually-hidden">次へ</span>
-                    </button>
+                    <img src="img/SPY×FAMILY.jpg" alt="SPY×FAMILY">
                 </div>
 
                 <!-- タイトルと基本情報 -->
@@ -196,11 +154,10 @@
                     <div class="d-flex gap-2 mb-3">
                         <span class="badge bg-primary fs-6">ファンタジー</span>
                         <span class="badge bg-warning text-dark fs-6">アクション</span>
-                        <span class="badge bg-success fs-6">放送中</span>
                         <span class="badge bg-danger fs-6">人気</span>
                     </div>
-                    <h1 class="display-4 fw-bold mb-3">異世界の勇者 ～運命の旅路～</h1>
-                    <p class="lead text-muted">Isekai no Yuusha: Unmei no Tabiji</p>
+                    <h1 class="display-4 fw-bold mb-3">SPY×FAMILY</h1>
+                    <p class="lead text-muted">Spy × Family</p>
                 </div>
 
                 <!-- あらすじ -->
@@ -326,7 +283,7 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-half"></i>
                         </div>
-                        <p class="mb-0"><a href="anime-review.html"
+                        <p class="mb-0"><a href="manga-review.html"
                                 class="link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover float-link">1,234件のレビュー</a>
                         </p>
                     </div>
@@ -344,11 +301,11 @@
                         <i class="bi bi-share"></i> シェアする
                     </button>
                 </div>
-
+                <!--作品一覧-->
                 <!-- 統計情報 -->
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold mb-3"><i class="bi bi-bar-chart-fill"></i> 統計情報</h5>
+                        <h5 class="card-title fw-bold mb-3"><i class="bi bi-bar-chart-fill"></i> 作品</h5>
                         <div class="mb-3">
                             <div class="d-flex justify-content-between mb-1">
                                 <span>視聴中</span>
@@ -445,9 +402,9 @@
                             <div class="row g-4">
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/syouta.webp" class="card-img-top character-img" alt="佐藤翔太">
+                                        <img src="img/SPY-1.jpg" class="card-img-top character-img" alt="佐藤翔太">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">佐藤翔太</h5>
+                                            <h5 class="card-title fw-bold">ロイド・フォージャー</h5>
                                             <p class="text-muted small mb-2">CV: 梶裕貴</p>
                                             <p class="card-text small">本作の主人公。平凡な高校生だったが、異世界に召喚され勇者となる。正義感が強く仲間思い。</p>
                                         </div>
@@ -455,9 +412,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/erina.webp" class="card-img-top character-img" alt="エリナ">
+                                        <img src="img/SPY-3.jpg" class="card-img-top character-img" alt="エリナ">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">エリナ・フォルテシア</h5>
+                                            <h5 class="card-title fw-bold">ヨル・フォージャー</h5>
                                             <p class="text-muted small mb-2">CV: 早見沙織</p>
                                             <p class="card-text small">王国の第一王女。魔法の才能に優れ、翔太の最初の仲間となる。気高く優雅だが意外とドジ。</p>
                                         </div>
@@ -465,9 +422,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/ryuu.webp" class="card-img-top character-img" alt="リュウ">
+                                        <img src="img/SPY-2.jpg" class="card-img-top character-img" alt="リュウ">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">リュウ・ドラゴニア</h5>
+                                            <h5 class="card-title fw-bold">アーニャ・フォージャー</h5>
                                             <p class="text-muted small mb-2">CV: 中村悠一</p>
                                             <p class="card-text small">竜族の戦士。剣の達人で、クールな性格だが仲間への信頼は厚い。</p>
                                         </div>
@@ -475,9 +432,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/runa.webp" class="card-img-top character-img" alt="ルナ">
+                                        <img src="img/SPY-4.jpg" class="card-img-top character-img" alt="ルナ">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">ルナ・シルフィード</h5>
+                                            <h5 class="card-title fw-bold">ボンド・フォージャー</h5>
                                             <p class="text-muted small mb-2">CV: 花澤香菜</p>
                                             <p class="card-text small">エルフ族の弓使い。明るく元気な性格でムードメーカー。回復魔法も得意。</p>
                                         </div>
@@ -500,9 +457,9 @@
                             <div class="row g-4">
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/king.webp" class="card-img-top character-img" alt="アルフレッド王">
+                                        <img src="img/フランキー.jpg" class="card-img-top character-img" alt="アルフレッド王">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">アルフレッド王</h5>
+                                            <h5 class="card-title fw-bold">フランキー・フランクリン</h5>
                                             <p class="text-muted small mb-2">CV: 大塚明夫</p>
                                             <p class="card-text small">王国を治める賢王。翔太を勇者として召喚した張本人。</p>
                                         </div>
@@ -510,9 +467,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/devil.webp" class="card-img-top character-img" alt="魔王">
+                                        <img src="img/ゆーり.jpg" class="card-img-top character-img" alt="魔王">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">魔王ゼノン</h5>
+                                            <h5 class="card-title fw-bold">ユーリ・ブライア</h5>
                                             <p class="text-muted small mb-2">CV: 子安武人</p>
                                             <p class="card-text small">世界を脅かす魔王。圧倒的な力を持つが、その真意は謎に包まれている。</p>
                                         </div>
@@ -520,9 +477,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/wiseman.webp" class="card-img-top character-img" alt="賢者">
+                                        <img src="img/damiann.jpg" class="card-img-top character-img" alt="賢者">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">賢者マーリン</h5>
+                                            <h5 class="card-title fw-bold">ダミアン・デズモンド</h5>
                                             <p class="text-muted small mb-2">CV: 速水奨</p>
                                             <p class="card-text small">古代から生きる大賢者。翔太たちに助言を与える。</p>
                                         </div>
@@ -530,13 +487,176 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card character-card h-100">
-                                        <img src="images/merchant.webp" class="card-img-top character-img" alt="商人">
+                                        <img src="img/bekki-.jpg" class="card-img-top character-img" alt="商人">
                                         <div class="card-body">
-                                            <h5 class="card-title fw-bold">商人ギルバート</h5>
+                                            <h5 class="card-title fw-bold">ベッキー・ブラックベル</h5>
                                             <p class="text-muted small mb-2">CV: 杉田智和</p>
                                             <p class="card-text small">各地を旅する商人。翔太たちに武器や道具を提供する。</p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
+            <h2 class="fw-bold mb-4"><i class="bi bi-book"></i> エピソード</h2>
+            <div class="accordion mb-4 " id="mangawa">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mangahanasi">
+                            <i class="bi bi-journals me-2"></i> 話
+                        </button>
+                    </h2>
+                    <div id="mangahanasi" class="accordion-collapse collapse" data-bs-parent="#mangawa">
+                        <div class="accordion-body p-0">
+                            <table class="table table-bordered md-0">
+                                <tbody>
+                                    <tr>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156648240735"
+                                                class="text-decoration-none">1話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156650114151"
+                                                class="text-decoration-none">2話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156651991803"
+                                                class="text-decoration-none">3話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156652976477"
+                                                class="text-decoration-none">4話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156656301048"
+                                                class="text-decoration-none">5話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156658863559"
+                                                class="text-decoration-none">6話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156661563911"
+                                                class="text-decoration-none">7話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156664755654"
+                                                class="text-decoration-none">8話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156668339790"
+                                                class="text-decoration-none">9話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156672081142"
+                                                class="text-decoration-none">10話</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156676038921"
+                                                class="text-decoration-none">11話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156680418370"
+                                                class="text-decoration-none">12話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156685059935"
+                                                class="text-decoration-none">13話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156689788096"
+                                                class="text-decoration-none">14話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156695205442"
+                                                class="text-decoration-none">15話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156711907398"
+                                                class="text-decoration-none">16話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156717556901"
+                                                class="text-decoration-none">17話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156724323479"
+                                                class="text-decoration-none">18話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156739854036"
+                                                class="text-decoration-none">19話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156747972113"
+                                                class="text-decoration-none">20話</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156755871994"
+                                                class="text-decoration-none">21話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156763196839"
+                                                class="text-decoration-none">22話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/10834108156770730704"
+                                                class="text-decoration-none">23話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331610156025"
+                                                class="text-decoration-none">24話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331625309586"
+                                                class="text-decoration-none">25話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331636356401"
+                                                class="text-decoration-none">26話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331646437354"
+                                                class="text-decoration-none">27話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331663227543"
+                                                class="text-decoration-none">28話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331670856235"
+                                                class="text-decoration-none">29話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331683479255"
+                                                class="text-decoration-none">30話</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331690848982"
+                                                class="text-decoration-none">31話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331690848982"
+                                                class="text-decoration-none">32話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331710983920"
+                                                class="text-decoration-none">33話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331716918222"
+                                                class="text-decoration-none">34話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331722306424"
+                                                class="text-decoration-none">35話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331728304226"
+                                                class="text-decoration-none">36話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331750652986"
+                                                class="text-decoration-none">37話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331775999418"
+                                                class="text-decoration-none">38話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331789083960"
+                                                class="text-decoration-none">39話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/13933686331802605789"
+                                                class="text-decoration-none">40話</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269632237260928209"
+                                                class="text-decoration-none">41話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269632237276649235"
+                                                class="text-decoration-none">42話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269632237291914701"
+                                                class="text-decoration-none">43話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269632237324253500"
+                                                class="text-decoration-none">44話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269754496296143236"
+                                                class="text-decoration-none">45話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269754496316033522"
+                                                class="text-decoration-none">46話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269754496334628069"
+                                                class="text-decoration-none">47話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269754496372421240"
+                                                class="text-decoration-none">48話</a></td>
+                                        <td><a href="https://shonenjumpplus.com/episode/3269754496391011452"
+                                                class="text-decoration-none">49話</a></td>
+                                        <td><i class="bi bi-three-dots"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#mangakomikku">
+                            <i class="bi bi-book-half me-2"></i> コミックス
+                        </button>
+                    </h2>
+                    <div id="mangakomikku" class="accordion-collapse collapse" data-bs-parent="#mangawa">
+                        <div class="accordion-body">
+                            <!-- スクロールバー -->
+                            <div  class="scroll-container " >
+                                <div class="scroll-track">
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109236053"><img src="img/SPY-1.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109236023"><img src="img/SPY-2.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235998"><img src="img/SPY-3.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235968"><img src="img/SPY-4.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235939"><img src="img/SPY-5.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235914"><img src="img/SPY-6.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235889"><img src="img/SPY-7.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235867"><img src="img/SPY-8.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235837"><img src="img/SPY-9.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4855956445109235808"><img src="img/SPY-10.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/4856001361211921384"><img src="img/SPY-11.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/14079602755257864648"><img src="img/SPY-12.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/8603475606561735529"><img src="img/SPY-13.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/17106371892658460729"><img src="img/SPY-14.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/17106567263376068723"><img src="img/SPY-15.jpg"></a></div>
+                                    <div class="scroll-item"><a href="https://shonenjumpplus.com/volume/17107094910217162643"><img src="img/SPY-16.jpg"></a></div>
                                 </div>
                             </div>
                         </div>
@@ -551,14 +671,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold mb-3"><i class="bi bi-film"></i> AnimeHub</h5>
+                    <h5 class="fw-bold mb-3"><i class="bi bi-book"></i> PanelX</h5>
                     <p class="text-light">あなたの好きなアニメを見つけて、共有しよう。</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h6 class="fw-bold mb-3">サイト情報</h6>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">利用規約</a></li>
+                        <li><a href="manga-liyoukiyaku.html" class="text-light text-decoration-none">利用規約</a></li>
                         <li><a href="#" class="text-light text-decoration-none">プライバシー</a></li>
                     </ul>
                 </div>
@@ -590,6 +710,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="common.js"></script>
+
 </body>
 
 </html>
